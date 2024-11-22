@@ -60,3 +60,24 @@ Crea un commit con un mensaje descriptivo.
 
 git rm [archivo]
 Elimina un archivo del repositorio y lo marca para el próximo commit.
+
+git config --global user.name "[tu_nombre]"
+Configura tu nombre de usuario.
+
+git config --global user.email "[tu_email]"
+Configura tu correo electrónico.
+
+git config --list
+Verifica la configuración actual de Git.
+
+git init
+Inicializa un nuevo repositorio en la carpeta actual.
+
+git clone [url]
+Clona un repositorio existente.
+
+git status
+Muestra el estado actual de tu repositorio.
+
+git log
+Muestra el historial de commits.
