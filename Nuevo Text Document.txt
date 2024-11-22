@@ -17,3 +17,9 @@ Mueve un archivo o carpeta.
 Ejemplo: move archivo.txt C:\Destino.
 copy [origen] [destino]
 Copia archivos de un lugar a otro.
+git branch
+Muestra las ramas disponibles.
+git branch [nombre_rama]
+Crea una nueva rama.
+git checkout [nombre_rama]
+Cambia a otra rama.
