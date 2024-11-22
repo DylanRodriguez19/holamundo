@@ -7,3 +7,13 @@ cd ..
 Retrocede al directorio padre.
 mkdir [nombre]
 Crea una nueva carpeta.
+del [archivo]
+Borra un archivo.
+Ejemplo: del archivo.txt.
+rmdir [directorio] /s /q
+Borra una carpeta y todo su contenido sin confirmación.
+move [origen] [destino]
+Mueve un archivo o carpeta.
+Ejemplo: move archivo.txt C:\Destino.
+copy [origen] [destino]
+Copia archivos de un lugar a otro.
