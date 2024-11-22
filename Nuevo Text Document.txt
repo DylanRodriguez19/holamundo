@@ -23,3 +23,7 @@ git branch [nombre_rama]
 Crea una nueva rama.
 git checkout [nombre_rama]
 Cambia a otra rama.
+git checkout -b [nombre_rama]
+Crea y cambia a una nueva rama.
+git merge [rama]
+Fusiona una rama con la actual.
