@@ -5,3 +5,5 @@ cd [ruta]
 Cambia al directorio especificado.
 cd ..
 Retrocede al directorio padre.
+mkdir [nombre]
+Crea una nueva carpeta.
