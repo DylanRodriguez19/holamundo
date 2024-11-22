@@ -1,2 +1,5 @@
+wINDOWS
 dir
 Lista los archivos y carpetas en el directorio actual..
+cd [ruta]
+Cambia al directorio especificado.
