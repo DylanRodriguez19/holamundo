@@ -1,36 +1,62 @@
-wINDOWS
+Windows
 dir
-Lista los archivos y carpetas en el directorio actual..
+Lista los archivos y carpetas en el directorio actual.
+
 cd [ruta]
 Cambia al directorio especificado.
+
 cd ..
 Retrocede al directorio padre.
+
 mkdir [nombre]
 Crea una nueva carpeta.
+
 del [archivo]
 Borra un archivo.
-Ejemplo: del archivo.txt.
+
 rmdir [directorio] /s /q
 Borra una carpeta y todo su contenido sin confirmación.
+
 move [origen] [destino]
 Mueve un archivo o carpeta.
-Ejemplo: move archivo.txt C:\Destino.
+
 copy [origen] [destino]
 Copia archivos de un lugar a otro.
+
+Git
 git branch
 Muestra las ramas disponibles.
+
 git branch [nombre_rama]
 Crea una nueva rama.
+
 git checkout [nombre_rama]
 Cambia a otra rama.
+
 git checkout -b [nombre_rama]
 Crea y cambia a una nueva rama.
+
 git merge [rama]
 Fusiona una rama con la actual.
-Sincronización remota
+
 git remote add origin [url]
 Asocia tu repositorio local con uno remoto.
+
 git push origin [rama]
 Sube tus cambios al repositorio remoto.
+
 git pull origin [rama]
 Trae los cambios del repositorio remoto y los fusiona.
+
+git add [archivo]
+Añade un archivo al área de preparación (staging).
+
+
+git add .
+Añade todos los cambios al área de preparación.
+
+git commit -m "[mensaje]"
+Crea un commit con un mensaje descriptivo.
+
+git rm [archivo]
+Elimina un archivo del repositorio y lo marca para el próximo commit.
