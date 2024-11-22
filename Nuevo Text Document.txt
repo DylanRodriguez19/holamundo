@@ -3,3 +3,5 @@ dir
 Lista los archivos y carpetas en el directorio actual..
 cd [ruta]
 Cambia al directorio especificado.
+cd ..
+Retrocede al directorio padre.
