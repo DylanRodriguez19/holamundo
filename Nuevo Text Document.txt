@@ -27,3 +27,10 @@ git checkout -b [nombre_rama]
 Crea y cambia a una nueva rama.
 git merge [rama]
 Fusiona una rama con la actual.
+Sincronización remota
+git remote add origin [url]
+Asocia tu repositorio local con uno remoto.
+git push origin [rama]
+Sube tus cambios al repositorio remoto.
+git pull origin [rama]
+Trae los cambios del repositorio remoto y los fusiona.
