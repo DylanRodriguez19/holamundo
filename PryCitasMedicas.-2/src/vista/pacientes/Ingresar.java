@@ -9,6 +9,7 @@ import modelo.PacienteModelo;
 public class Ingresar extends javax.swing.JInternalFrame {
 
     PacienteControlador paciente = PacienteControlador.getInstancia();
+    private String doctorSeleccionado;
     public Ingresar() {
         initComponents();
         

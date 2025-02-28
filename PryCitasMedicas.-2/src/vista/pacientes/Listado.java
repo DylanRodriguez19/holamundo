@@ -3,27 +3,51 @@ package vista.pacientes;
 import controlador.PacienteControlador;
 import javax.swing.table.DefaultTableModel;
 import modelo.PacienteModelo;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import vista.PantallaPrincipal;
 
 public class Listado extends javax.swing.JInternalFrame {
     public DefaultTableModel tableModel= new DefaultTableModel();
     PacienteControlador controlador = PacienteControlador.getInstancia();
+    private PantallaPrincipal pantallaPrincipal;
     
-    public Listado() {
+    public Listado(PantallaPrincipal pantallaPrincipal) {
+         this.pantallaPrincipal = pantallaPrincipal;
         initComponents();
         
     tbl_TablaListado.setModel(tableModel);
     String columnas []= {"CEDULA","NOMBRES","EDAD","SEXO"};
     tableModel.setColumnIdentifiers(columnas);
         listar();
+        
+        tbl_TablaListado.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+             @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    int filaSeleccionada = tbl_TablaListado.getSelectedRow();
+                    if (filaSeleccionada != -1) {
+                        String pacienteSeleccionado = tbl_TablaListado.getValueAt(filaSeleccionada, 1).toString();
+                        pantallaPrincipal.setPacienteSeleccionado(pacienteSeleccionado);
+                        System.out.println("Paciente seleccionado: " + pacienteSeleccionado);
+                    }
+                }
+            }
+        });
 
     }
     public void listar(){
-    for (PacienteModelo pacienteModelo :  controlador.listadoCompleto()) {
-            Object[] fila={pacienteModelo.getCedula(),pacienteModelo.getNombres()
-                    ,pacienteModelo.getEdad(), pacienteModelo.getSexo()};
+    tableModel.setRowCount(0);
+        for (PacienteModelo pacienteModelo : controlador.listadoCompleto()) {
+            Object[] fila = {
+                pacienteModelo.getCedula(),
+                pacienteModelo.getNombres(),
+                pacienteModelo.getEdad(),
+                pacienteModelo.getSexo()
+            };
             tableModel.addRow(fila);
         }
-}
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -59,7 +83,7 @@ public class Listado extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -74,7 +98,7 @@ public class Listado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(txt_buscarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -83,11 +107,15 @@ public class Listado extends javax.swing.JInternalFrame {
 
     private void txt_buscarCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarCedulaKeyReleased
         String cedula = txt_buscarCedula.getText();
-        tableModel.setRowCount(0);
-        controlador.ListadoCompletoPorCedula(cedula);
-        for (PacienteModelo pacienteModelo :  controlador.ListadoCompletoPorCedula(cedula)) {
-            Object[] fila={pacienteModelo.getCedula(),pacienteModelo.getNombres()
-                    ,pacienteModelo.getEdad(), pacienteModelo.getSexo()};
+        tableModel.setRowCount(0); 
+
+        for (PacienteModelo pacienteModelo : controlador.ListadoCompletoPorCedula(cedula)) {
+            Object[] fila = {
+                pacienteModelo.getCedula(),
+                pacienteModelo.getNombres(),
+                pacienteModelo.getEdad(),
+                pacienteModelo.getSexo()
+            };
             tableModel.addRow(fila);
         }
     }//GEN-LAST:event_txt_buscarCedulaKeyReleased

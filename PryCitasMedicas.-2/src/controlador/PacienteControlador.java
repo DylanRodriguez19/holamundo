@@ -8,7 +8,7 @@ public class PacienteControlador  {
     
     private static PacienteControlador instancia;
 
-    public PacienteControlador() {
+    private PacienteControlador() {
     this.listaPaciente = new ArrayList<>();
     }
     
